@@ -1,0 +1,18 @@
+{
+ "batch_size": 4,
+ "channels": "0,1,2",
+ "data_all": "data_512",
+ "dataset_file": "512",
+ "dataset_path": "../../data_Unetv2",
+ "device_ids": "1",
+ "fold_in": 2,
+ "fold_out": 0,
+ "limit": 10000,
+ "lr": 0.001,
+ "model": "UNet",
+ "n_epochs": 1,
+ "percent": 1,
+ "root": "runs/debug",
+ "test_file": "test",
+ "train_val_file": "train_val"
+}

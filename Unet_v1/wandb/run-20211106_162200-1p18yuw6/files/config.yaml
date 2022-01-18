@@ -1,0 +1,33 @@
+wandb_version: 1
+
+_wandb:
+  desc: null
+  value:
+    cli_version: 0.12.6
+    framework: torch
+    is_jupyter_run: false
+    is_kaggle_kernel: false
+    python_version: 3.6.9
+    start_time: 1636215720
+    t:
+      1:
+      - 1
+      2:
+      - 1
+      4: 3.6.9
+      5: 0.12.6
+      8:
+      - 5
+model_opts:
+  desc: null
+  value:
+    args:
+      batch: 4
+      dataset: water
+      epochs: 100
+      inchannels: 3
+      lr: 0.001
+      net_depth: 5
+      outchannels: 1
+      workers: 1
+    name: Unet

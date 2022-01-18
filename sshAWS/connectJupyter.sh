@@ -1,0 +1,1 @@
+ssh -i "training_ec2.pem" -L 8000:localhost:8888 ubuntu@ec2-44-198-164-72.compute-1.amazonaws.com

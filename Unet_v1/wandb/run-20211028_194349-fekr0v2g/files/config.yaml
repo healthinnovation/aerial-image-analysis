@@ -1,0 +1,28 @@
+wandb_version: 1
+
+_wandb:
+  desc: null
+  value:
+    cli_version: 0.12.6
+    framework: torch
+    is_jupyter_run: false
+    is_kaggle_kernel: false
+    python_version: 3.6.9
+    start_time: 1635443029
+    t:
+      1:
+      - 1
+      2:
+      - 1
+      4: 3.6.9
+      5: 0.12.6
+      8:
+      - 5
+model_opts:
+  desc: null
+  value:
+    args:
+      inchannels: 3
+      net_depth: 5
+      outchannels: 1
+    name: U-Net

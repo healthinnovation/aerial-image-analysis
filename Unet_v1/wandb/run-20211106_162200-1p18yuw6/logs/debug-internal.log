@@ -1,0 +1,134 @@
+2021-11-06 16:22:01,681 INFO    MainThread:6857 [internal.py:wandb_internal():90] W&B internal server running at pid: 6857, started at: 2021-11-06 16:22:01.681551
+2021-11-06 16:22:01,683 DEBUG   HandlerThread:6857 [handler.py:handle_request():130] handle_request: check_version
+2021-11-06 16:22:01,686 INFO    WriterThread:6857 [datastore.py:open_for_write():77] open: /home/ubuntu/cgiar_repo/cgiar-malaria/wandb/run-20211106_162200-1p18yuw6/run-1p18yuw6.wandb
+2021-11-06 16:22:01,687 DEBUG   SenderThread:6857 [sender.py:send():238] send: header
+2021-11-06 16:22:01,688 DEBUG   SenderThread:6857 [sender.py:send_request():252] send_request: check_version
+2021-11-06 16:22:01,716 DEBUG   SenderThread:6857 [sender.py:send():238] send: run
+2021-11-06 16:22:01,830 INFO    SenderThread:6857 [dir_watcher.py:__init__():169] watching files in: /home/ubuntu/cgiar_repo/cgiar-malaria/wandb/run-20211106_162200-1p18yuw6/files
+2021-11-06 16:22:01,831 INFO    SenderThread:6857 [sender.py:_start_run_threads():828] run started: 1p18yuw6 with start time 1636215720
+2021-11-06 16:22:01,831 DEBUG   SenderThread:6857 [sender.py:send():238] send: summary
+2021-11-06 16:22:01,832 INFO    SenderThread:6857 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-06 16:22:01,834 DEBUG   HandlerThread:6857 [handler.py:handle_request():130] handle_request: run_start
+2021-11-06 16:22:01,837 DEBUG   HandlerThread:6857 [meta.py:__init__():40] meta init
+2021-11-06 16:22:01,837 DEBUG   HandlerThread:6857 [meta.py:__init__():54] meta init done
+2021-11-06 16:22:01,837 DEBUG   HandlerThread:6857 [meta.py:probe():214] probe
+2021-11-06 16:22:01,843 DEBUG   HandlerThread:6857 [meta.py:_setup_git():204] setup git
+2021-11-06 16:22:01,856 DEBUG   HandlerThread:6857 [meta.py:_setup_git():211] setup git done
+2021-11-06 16:22:01,857 DEBUG   HandlerThread:6857 [meta.py:_save_pip():58] save pip
+2021-11-06 16:22:01,857 DEBUG   HandlerThread:6857 [meta.py:_save_pip():72] save pip done
+2021-11-06 16:22:01,857 DEBUG   HandlerThread:6857 [meta.py:probe():252] probe done
+2021-11-06 16:22:01,862 DEBUG   SenderThread:6857 [sender.py:send():238] send: files
+2021-11-06 16:22:01,862 INFO    SenderThread:6857 [sender.py:_save_file():960] saving file wandb-metadata.json with policy now
+2021-11-06 16:22:01,870 DEBUG   HandlerThread:6857 [handler.py:handle_request():130] handle_request: stop_status
+2021-11-06 16:22:01,870 DEBUG   SenderThread:6857 [sender.py:send_request():252] send_request: stop_status
+2021-11-06 16:22:01,929 DEBUG   SenderThread:6857 [sender.py:send():238] send: config
+2021-11-06 16:22:02,298 INFO    Thread-11 :6857 [upload_job.py:push():137] Uploaded file /tmp/tmpp8y2m2r8wandb/bw4gjspq-wandb-metadata.json
+2021-11-06 16:22:02,832 INFO    Thread-8  :6857 [dir_watcher.py:_on_file_created():217] file/dir created: /home/ubuntu/cgiar_repo/cgiar-malaria/wandb/run-20211106_162200-1p18yuw6/files/wandb-metadata.json
+2021-11-06 16:22:02,833 INFO    Thread-8  :6857 [dir_watcher.py:_on_file_created():217] file/dir created: /home/ubuntu/cgiar_repo/cgiar-malaria/wandb/run-20211106_162200-1p18yuw6/files/output.log
+2021-11-06 16:22:02,833 INFO    Thread-8  :6857 [dir_watcher.py:_on_file_created():217] file/dir created: /home/ubuntu/cgiar_repo/cgiar-malaria/wandb/run-20211106_162200-1p18yuw6/files/wandb-summary.json
+2021-11-06 16:22:02,833 INFO    Thread-8  :6857 [dir_watcher.py:_on_file_created():217] file/dir created: /home/ubuntu/cgiar_repo/cgiar-malaria/wandb/run-20211106_162200-1p18yuw6/files/requirements.txt
+2021-11-06 16:22:04,381 DEBUG   SenderThread:6857 [sender.py:send():238] send: telemetry
+2021-11-06 16:22:04,381 DEBUG   HandlerThread:6857 [handler.py:handle_request():130] handle_request: poll_exit
+2021-11-06 16:22:04,382 DEBUG   SenderThread:6857 [sender.py:send():238] send: exit
+2021-11-06 16:22:04,382 INFO    SenderThread:6857 [sender.py:send_exit():370] handling exit code: 1
+2021-11-06 16:22:04,382 INFO    SenderThread:6857 [sender.py:send_exit():372] handling runtime: 2
+2021-11-06 16:22:04,383 INFO    SenderThread:6857 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-06 16:22:04,383 INFO    SenderThread:6857 [sender.py:send_exit():382] send defer
+2021-11-06 16:22:04,383 DEBUG   SenderThread:6857 [sender.py:send_request():252] send_request: poll_exit
+2021-11-06 16:22:04,384 DEBUG   HandlerThread:6857 [handler.py:handle_request():130] handle_request: defer
+2021-11-06 16:22:04,384 INFO    HandlerThread:6857 [handler.py:handle_request_defer():147] handle defer: 0
+2021-11-06 16:22:04,384 DEBUG   SenderThread:6857 [sender.py:send_request():252] send_request: defer
+2021-11-06 16:22:04,384 INFO    SenderThread:6857 [sender.py:send_request_defer():391] handle sender defer: 0
+2021-11-06 16:22:04,384 INFO    SenderThread:6857 [sender.py:transition_state():395] send defer: 1
+2021-11-06 16:22:04,385 DEBUG   HandlerThread:6857 [handler.py:handle_request():130] handle_request: defer
+2021-11-06 16:22:04,385 INFO    HandlerThread:6857 [handler.py:handle_request_defer():147] handle defer: 1
+2021-11-06 16:22:04,401 DEBUG   SenderThread:6857 [sender.py:send_request():252] send_request: defer
+2021-11-06 16:22:04,401 INFO    SenderThread:6857 [sender.py:send_request_defer():391] handle sender defer: 1
+2021-11-06 16:22:04,401 INFO    SenderThread:6857 [sender.py:transition_state():395] send defer: 2
+2021-11-06 16:22:04,402 DEBUG   HandlerThread:6857 [handler.py:handle_request():130] handle_request: defer
+2021-11-06 16:22:04,402 DEBUG   SenderThread:6857 [sender.py:send():238] send: stats
+2021-11-06 16:22:04,402 INFO    HandlerThread:6857 [handler.py:handle_request_defer():147] handle defer: 2
+2021-11-06 16:22:04,403 DEBUG   SenderThread:6857 [sender.py:send_request():252] send_request: defer
+2021-11-06 16:22:04,403 INFO    SenderThread:6857 [sender.py:send_request_defer():391] handle sender defer: 2
+2021-11-06 16:22:04,403 INFO    SenderThread:6857 [sender.py:transition_state():395] send defer: 3
+2021-11-06 16:22:04,403 DEBUG   HandlerThread:6857 [handler.py:handle_request():130] handle_request: defer
+2021-11-06 16:22:04,403 INFO    HandlerThread:6857 [handler.py:handle_request_defer():147] handle defer: 3
+2021-11-06 16:22:04,404 DEBUG   SenderThread:6857 [sender.py:send():238] send: summary
+2021-11-06 16:22:04,404 INFO    SenderThread:6857 [sender.py:_save_file():960] saving file wandb-summary.json with policy end
+2021-11-06 16:22:04,404 DEBUG   SenderThread:6857 [sender.py:send_request():252] send_request: defer
+2021-11-06 16:22:04,404 INFO    SenderThread:6857 [sender.py:send_request_defer():391] handle sender defer: 3
+2021-11-06 16:22:04,404 INFO    SenderThread:6857 [sender.py:transition_state():395] send defer: 4
+2021-11-06 16:22:04,404 DEBUG   HandlerThread:6857 [handler.py:handle_request():130] handle_request: defer
+2021-11-06 16:22:04,405 INFO    HandlerThread:6857 [handler.py:handle_request_defer():147] handle defer: 4
+2021-11-06 16:22:04,405 DEBUG   SenderThread:6857 [sender.py:send_request():252] send_request: defer
+2021-11-06 16:22:04,405 INFO    SenderThread:6857 [sender.py:send_request_defer():391] handle sender defer: 4
+2021-11-06 16:22:04,486 DEBUG   HandlerThread:6857 [handler.py:handle_request():130] handle_request: poll_exit
+2021-11-06 16:22:04,493 INFO    SenderThread:6857 [sender.py:transition_state():395] send defer: 5
+2021-11-06 16:22:04,494 DEBUG   SenderThread:6857 [sender.py:send_request():252] send_request: poll_exit
+2021-11-06 16:22:04,494 DEBUG   HandlerThread:6857 [handler.py:handle_request():130] handle_request: defer
+2021-11-06 16:22:04,494 INFO    HandlerThread:6857 [handler.py:handle_request_defer():147] handle defer: 5
+2021-11-06 16:22:04,495 DEBUG   SenderThread:6857 [sender.py:send_request():252] send_request: defer
+2021-11-06 16:22:04,495 INFO    SenderThread:6857 [sender.py:send_request_defer():391] handle sender defer: 5
+2021-11-06 16:22:04,495 INFO    SenderThread:6857 [dir_watcher.py:finish():283] shutting down directory watcher
+2021-11-06 16:22:04,596 DEBUG   HandlerThread:6857 [handler.py:handle_request():130] handle_request: poll_exit
+2021-11-06 16:22:04,832 INFO    Thread-8  :6857 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/ubuntu/cgiar_repo/cgiar-malaria/wandb/run-20211106_162200-1p18yuw6/files/config.yaml
+2021-11-06 16:22:04,832 INFO    SenderThread:6857 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/ubuntu/cgiar_repo/cgiar-malaria/wandb/run-20211106_162200-1p18yuw6/files/output.log
+2021-11-06 16:22:04,833 INFO    SenderThread:6857 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/ubuntu/cgiar_repo/cgiar-malaria/wandb/run-20211106_162200-1p18yuw6/files/wandb-summary.json
+2021-11-06 16:22:04,833 INFO    SenderThread:6857 [dir_watcher.py:finish():313] scan: /home/ubuntu/cgiar_repo/cgiar-malaria/wandb/run-20211106_162200-1p18yuw6/files
+2021-11-06 16:22:04,833 INFO    SenderThread:6857 [dir_watcher.py:finish():327] scan save: /home/ubuntu/cgiar_repo/cgiar-malaria/wandb/run-20211106_162200-1p18yuw6/files/wandb-metadata.json wandb-metadata.json
+2021-11-06 16:22:04,833 INFO    SenderThread:6857 [dir_watcher.py:finish():327] scan save: /home/ubuntu/cgiar_repo/cgiar-malaria/wandb/run-20211106_162200-1p18yuw6/files/output.log output.log
+2021-11-06 16:22:04,833 INFO    SenderThread:6857 [dir_watcher.py:finish():327] scan save: /home/ubuntu/cgiar_repo/cgiar-malaria/wandb/run-20211106_162200-1p18yuw6/files/config.yaml config.yaml
+2021-11-06 16:22:04,833 INFO    SenderThread:6857 [dir_watcher.py:finish():327] scan save: /home/ubuntu/cgiar_repo/cgiar-malaria/wandb/run-20211106_162200-1p18yuw6/files/wandb-summary.json wandb-summary.json
+2021-11-06 16:22:04,841 INFO    SenderThread:6857 [dir_watcher.py:finish():327] scan save: /home/ubuntu/cgiar_repo/cgiar-malaria/wandb/run-20211106_162200-1p18yuw6/files/requirements.txt requirements.txt
+2021-11-06 16:22:04,841 INFO    SenderThread:6857 [sender.py:transition_state():395] send defer: 6
+2021-11-06 16:22:04,845 DEBUG   SenderThread:6857 [sender.py:send_request():252] send_request: poll_exit
+2021-11-06 16:22:04,846 DEBUG   HandlerThread:6857 [handler.py:handle_request():130] handle_request: defer
+2021-11-06 16:22:04,847 INFO    HandlerThread:6857 [handler.py:handle_request_defer():147] handle defer: 6
+2021-11-06 16:22:04,851 DEBUG   SenderThread:6857 [sender.py:send_request():252] send_request: defer
+2021-11-06 16:22:04,851 INFO    SenderThread:6857 [sender.py:send_request_defer():391] handle sender defer: 6
+2021-11-06 16:22:04,851 INFO    SenderThread:6857 [file_pusher.py:finish():177] shutting down file pusher
+2021-11-06 16:22:04,948 DEBUG   HandlerThread:6857 [handler.py:handle_request():130] handle_request: poll_exit
+2021-11-06 16:22:04,948 DEBUG   SenderThread:6857 [sender.py:send_request():252] send_request: poll_exit
+2021-11-06 16:22:05,050 DEBUG   HandlerThread:6857 [handler.py:handle_request():130] handle_request: poll_exit
+2021-11-06 16:22:05,050 DEBUG   SenderThread:6857 [sender.py:send_request():252] send_request: poll_exit
+2021-11-06 16:22:05,152 DEBUG   HandlerThread:6857 [handler.py:handle_request():130] handle_request: poll_exit
+2021-11-06 16:22:05,152 DEBUG   SenderThread:6857 [sender.py:send_request():252] send_request: poll_exit
+2021-11-06 16:22:05,175 INFO    Thread-12 :6857 [upload_job.py:push():137] Uploaded file /home/ubuntu/cgiar_repo/cgiar-malaria/wandb/run-20211106_162200-1p18yuw6/files/output.log
+2021-11-06 16:22:05,184 INFO    Thread-13 :6857 [upload_job.py:push():137] Uploaded file /home/ubuntu/cgiar_repo/cgiar-malaria/wandb/run-20211106_162200-1p18yuw6/files/config.yaml
+2021-11-06 16:22:05,185 INFO    Thread-15 :6857 [upload_job.py:push():137] Uploaded file /home/ubuntu/cgiar_repo/cgiar-malaria/wandb/run-20211106_162200-1p18yuw6/files/requirements.txt
+2021-11-06 16:22:05,223 INFO    Thread-14 :6857 [upload_job.py:push():137] Uploaded file /home/ubuntu/cgiar_repo/cgiar-malaria/wandb/run-20211106_162200-1p18yuw6/files/wandb-summary.json
+2021-11-06 16:22:05,254 DEBUG   HandlerThread:6857 [handler.py:handle_request():130] handle_request: poll_exit
+2021-11-06 16:22:05,254 DEBUG   SenderThread:6857 [sender.py:send_request():252] send_request: poll_exit
+2021-11-06 16:22:05,356 DEBUG   HandlerThread:6857 [handler.py:handle_request():130] handle_request: poll_exit
+2021-11-06 16:22:05,356 DEBUG   SenderThread:6857 [sender.py:send_request():252] send_request: poll_exit
+2021-11-06 16:22:05,424 INFO    Thread-7  :6857 [sender.py:transition_state():395] send defer: 7
+2021-11-06 16:22:05,425 DEBUG   HandlerThread:6857 [handler.py:handle_request():130] handle_request: defer
+2021-11-06 16:22:05,425 INFO    HandlerThread:6857 [handler.py:handle_request_defer():147] handle defer: 7
+2021-11-06 16:22:05,425 DEBUG   SenderThread:6857 [sender.py:send_request():252] send_request: defer
+2021-11-06 16:22:05,425 INFO    SenderThread:6857 [sender.py:send_request_defer():391] handle sender defer: 7
+2021-11-06 16:22:05,458 DEBUG   HandlerThread:6857 [handler.py:handle_request():130] handle_request: poll_exit
+2021-11-06 16:22:05,548 INFO    SenderThread:6857 [sender.py:transition_state():395] send defer: 8
+2021-11-06 16:22:05,548 DEBUG   SenderThread:6857 [sender.py:send_request():252] send_request: poll_exit
+2021-11-06 16:22:05,549 DEBUG   HandlerThread:6857 [handler.py:handle_request():130] handle_request: defer
+2021-11-06 16:22:05,549 INFO    HandlerThread:6857 [handler.py:handle_request_defer():147] handle defer: 8
+2021-11-06 16:22:05,549 DEBUG   SenderThread:6857 [sender.py:send_request():252] send_request: defer
+2021-11-06 16:22:05,549 INFO    SenderThread:6857 [sender.py:send_request_defer():391] handle sender defer: 8
+2021-11-06 16:22:05,550 INFO    SenderThread:6857 [sender.py:transition_state():395] send defer: 9
+2021-11-06 16:22:05,551 DEBUG   SenderThread:6857 [sender.py:send():238] send: final
+2021-11-06 16:22:05,551 DEBUG   SenderThread:6857 [sender.py:send():238] send: footer
+2021-11-06 16:22:05,551 DEBUG   HandlerThread:6857 [handler.py:handle_request():130] handle_request: defer
+2021-11-06 16:22:05,551 INFO    HandlerThread:6857 [handler.py:handle_request_defer():147] handle defer: 9
+2021-11-06 16:22:05,551 DEBUG   SenderThread:6857 [sender.py:send_request():252] send_request: defer
+2021-11-06 16:22:05,551 INFO    SenderThread:6857 [sender.py:send_request_defer():391] handle sender defer: 9
+2021-11-06 16:22:05,650 DEBUG   HandlerThread:6857 [handler.py:handle_request():130] handle_request: poll_exit
+2021-11-06 16:22:05,651 DEBUG   SenderThread:6857 [sender.py:send_request():252] send_request: poll_exit
+2021-11-06 16:22:05,651 INFO    SenderThread:6857 [file_pusher.py:join():182] waiting for file pusher
+2021-11-06 16:22:05,759 DEBUG   HandlerThread:6857 [handler.py:handle_request():130] handle_request: get_summary
+2021-11-06 16:22:05,760 DEBUG   HandlerThread:6857 [handler.py:handle_request():130] handle_request: sampled_history
+2021-11-06 16:22:05,761 DEBUG   HandlerThread:6857 [handler.py:handle_request():130] handle_request: shutdown
+2021-11-06 16:22:05,761 INFO    HandlerThread:6857 [handler.py:finish():731] shutting down handler
+2021-11-06 16:22:06,551 INFO    WriterThread:6857 [datastore.py:close():281] close: /home/ubuntu/cgiar_repo/cgiar-malaria/wandb/run-20211106_162200-1p18yuw6/run-1p18yuw6.wandb
+2021-11-06 16:22:06,758 INFO    SenderThread:6857 [sender.py:finish():1091] shutting down sender
+2021-11-06 16:22:06,758 INFO    SenderThread:6857 [file_pusher.py:finish():177] shutting down file pusher
+2021-11-06 16:22:06,758 INFO    SenderThread:6857 [file_pusher.py:join():182] waiting for file pusher
+2021-11-06 16:22:06,760 INFO    MainThread:6857 [internal.py:handle_exit():77] Internal process exited

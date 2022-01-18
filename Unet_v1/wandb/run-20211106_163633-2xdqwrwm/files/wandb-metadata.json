@@ -1,0 +1,24 @@
+{
+    "os": "Linux-5.4.0-1058-aws-x86_64-with-Ubuntu-18.04-bionic",
+    "python": "3.6.9",
+    "heartbeatAt": "2021-11-06T16:36:33.985781",
+    "startedAt": "2021-11-06T16:36:33.098881",
+    "docker": null,
+    "gpu": "Tesla K80",
+    "gpu_count": 1,
+    "cpu_count": 4,
+    "cuda": "10.2.89",
+    "args": [],
+    "state": "running",
+    "program": "src/main.py",
+    "codePath": "src/main.py",
+    "git": {
+        "remote": "https://github.com/alexandrojim/cgiar-malaria.git",
+        "commit": "03802b269d749ec425e276e348cfb0bc31e600bc"
+    },
+    "email": null,
+    "root": "/home/ubuntu/cgiar_repo/cgiar-malaria",
+    "host": "ip-172-31-30-178",
+    "username": "ubuntu",
+    "executable": "/home/ubuntu/.local/share/virtualenvs/cgiar-malaria-H4ySt5EV/bin/python"
+}
