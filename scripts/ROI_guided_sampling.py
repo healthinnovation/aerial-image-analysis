@@ -4,7 +4,6 @@ import cv2
 import math
 import time
 import glob
-import torch
 import logging
 import argparse
 import threading
@@ -12,11 +11,9 @@ import numpy as np
 import pandas as pd
 import multiprocessing
 import tifffile as tiff
-import torchvision.transforms.functional as F
 
 from PIL import Image
 from operator import itemgetter
-from torchvision.ops import masks_to_boxes
 
 Image.MAX_IMAGE_PIXELS = None
 
@@ -24,49 +21,35 @@ Image.MAX_IMAGE_PIXELS = None
 # Util functions #
 # -------------- #
 def generate_coords_indices(idx, PATCHSIZE, OVERLAP, img_size):
-    row_idx = list(range(idx[1], idx[1] + math.ceil((idx[3]-idx[1])/PATCHSIZE)*PATCHSIZE, int(PATCHSIZE*(1-OVERLAP))))
-    col_idx = list(range(idx[0], idx[0] + math.ceil((idx[2]-idx[0])/PATCHSIZE)*PATCHSIZE, int(PATCHSIZE*(1-OVERLAP))))
+    row_idx = list(range(idx[1], idx[3], int(PATCHSIZE*(1-OVERLAP))))
+    col_idx = list(range(idx[0], idx[2], int(PATCHSIZE*(1-OVERLAP))))
 
     # Check if last coordinates will generate regions outside of the image.
-    if (row_idx[-1] + PATCHSIZE) > img_size[0]:
-        row_idx.pop(-1) # remove last item of row indices to avoid extracting patches outside the big image.
-    
-    if (col_idx[-1] + PATCHSIZE) > img_size[1]:
-        col_idx.pop(-1) # remove last item of col indices to avoid extracting patches outside the big image.
+    # if (row_idx[-1] + PATCHSIZE) >= img_size[0]:
+        # row_idx.pop(-1) # remove last item of row indices to avoid extracting patches outside the big image.
+    row_idx = [row for row in row_idx if row + PATCHSIZE <= img_size[0]]
 
-    coordinates = zip(row_idx, col_idx)
+    # if (col_idx[-1] + PATCHSIZE) >= img_size[1]:
+        # col_idx.pop(-1) # remove last item of col indices to avoid extracting patches outside the big image.
+    col_idx = [col for col in col_idx if col + PATCHSIZE <= img_size[1]]
+
+    rows, cols = np.meshgrid(row_idx, col_idx)
+    coordinates = zip(rows.flatten(), cols.flatten())
+
     return coordinates
 
 def find_ROIs_in_mask(gt):
-    # # ------------------------------------------------------------------------------ #
-    # # Extract all regions annotated in the image -> instance separation/segmentation #
-    # # ------------------------------------------------------------------------------ #
-    # _, markers = cv2.connectedComponents(gt)
-    # mask_tensor = F.to_tensor(markers)#.to('cuda:0') # mask to gpu
-    # obj_ids = torch.unique(mask_tensor)
-    # obj_ids = obj_ids[1:]
-    # masks = mask_tensor == obj_ids[:, None, None] # masks containing objects detected
-
-    # # --------------------------------------------------------- #
-    # # Extract the coordinates of each instance in the big image #
-    # # --------------------------------------------------------- #
-    # boxes = masks_to_boxes(masks).numpy().astype(int) # (xmin, ymin, xmax, ymax) -> (cmin, rmin, cmax, rmax)
-    # # print(f'ROIs detected in drone image:', type(boxes), boxes.dtype, boxes.shape, boxes)
-
-    # del masks
-    # gc.collect()
-
-    # return boxes
-
-    # Multiple objects
+    # ------------------------ #
+    # Extract multiple objects #
+    # ------------------------ #
     contours = cv2.findContours(gt, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
     contours = contours[0] if len(contours) == 2 else contours[1]
     # i = 0
     boxes = []
     for cntr in contours:
         x1,y1,w,h = cv2.boundingRect(cntr)
-        x2 = x1+w
-        y2 = y1+h
+        x2 = x1+w # x = cols
+        y2 = y1+h # y = rows
         # print("Object:", i+1, "x1:", x1, "x2:", x2, "y1:", y1, "y2:", y2)
         # i += 1
         boxes.append([x1, y1, x2, y2])
@@ -87,7 +70,10 @@ def generate_patches(img, gt, boxes, PATCHSIZE, OVERLAP, THRESHOLD):
             # ------------------ #
             # Validating patches #
             # ------------------ #
-            if (np.sum(aux_patch_gt) >= int(PATCHSIZE * PATCHSIZE * THRESHOLD)) and aux_patch_img.shape[0] == 128 and aux_patch_img.shape[1] == 128:
+            aux_patch_img_binary = np.sum(aux_patch_img, axis=2) == 0
+            
+            # We eliminate patches which cotain less than 20% of information (zeroes in the drone image)
+            if (np.sum(aux_patch_gt) >= int(PATCHSIZE * PATCHSIZE * THRESHOLD)) and (np.sum(aux_patch_img_binary) <= int(PATCHSIZE * PATCHSIZE * 0.2)):
                 sample = {'image': aux_patch_img, 'gt': aux_patch_gt, 'coordinates': (row_idx, col_idx), 'gt_perc': np.sum(aux_patch_gt)/int(PATCHSIZE * PATCHSIZE)}
                 potential_patches.append(sample) # potential_patches[#elements]['image'/'gt'/'coordinates']
 

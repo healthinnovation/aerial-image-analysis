@@ -1,5 +1,74 @@
 import os
 <<<<<<< HEAD
+import gc
+from pickletools import uint8
+import cv2
+import glob
+import torch
+import argparse
+import numpy as np
+import tifffile as tiff
+from lib.models.unet import Unet
+import torchvision.transforms.functional as F
+
+from PIL import Image
+from operator import itemgetter
+from torchvision.ops import masks_to_boxes
+
+
+def generate_prediction(fullImg, PATCHSIZE, fullImg_size, weights_path, output_path):
+   
+    row_idx = list(range(0, fullImg_size[0], PATCHSIZE))
+    
+    if(row_idx[-1]<fullImg_size[0]):
+        row_idx.append(fullImg_size[0])
+    
+    print("Index of row:", row_idx)
+
+    col_idx = list(range(0, fullImg_size[1], PATCHSIZE))
+
+    if(col_idx[-1]<fullImg_size[1]):
+        col_idx.append(fullImg_size[1])
+
+    print("Index of col:", col_idx)
+
+    outputImage = np.zeros(fullImg_size[0], fullImg_size[1], dtype=np.uint8)
+
+    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+
+    model = Unet(inchannels=3, outchannels=1, net_depth=4)
+    model.to(device)
+    model.load_state_dict(torch.load(weights_path))
+
+    for row in row_idx:
+        for col in col_idx:
+            
+            patch = fullImg[row, col]
+            patch = np.expand_dims(patch,3)
+            patch = patch.transpose((3, 0, 1, 2))
+
+            patch = torch.from_numpy(patch)
+            patch = patch.to(device, dtype=torch.float)
+
+            with torch.no_grad():
+                pred_mask = model(patch)
+                pred = torch.sigmoid(pred_mask)
+                pred = (pred > 0.5).float()
+                pred = pred.cpu()
+
+            # print(pred.shape)
+            pred = Image.fromarray(np.uint8(np.squeeze(pred)*255))
+            outputImage[row, col]= pred
+          
+    mask = Image.fromarray(outputImage).point(lambda i: i * 255)
+    mask.save(output_path)
+
+
+# ------------ #
+# Main program #
+# ------------ #
+=======
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
 import torch
@@ -145,6 +214,7 @@ def generate_probability_map_per_class(patches_loader, patches_size, drone_img_p
 # ------------ #
 >>>>>>> 07140eaaa10e283042a6faa4b7862e3d6610012f
 >>>>>>> 42951068e7560a02fbd4c24434948ed3b02e4130
+>>>>>>> ac22ace2c0cd8ad797744c28f0b435856fba5fbe
 
 if __name__ =='__main__':
 
@@ -155,6 +225,15 @@ if __name__ =='__main__':
     parser.add_argument("--image_path", type=str, required=True)
     parser.add_argument("--output_dir", type=str, required=True)
 <<<<<<< HEAD
+    parser.add_argument("--patch_size", type=int, default=128)
+    parser.add_argument("--vegetated_unet", type=str, required=True)
+    ''''parser.add_argument("--non_vegetated_unet", type=str, required=True)
+    parser.add_argument("--roads_unet", type=str, required=True)
+    parser.add_argument("--tillage_unet", type=str, required=True)
+    parser.add_argument("--crops_unet", type=str, required=True)
+    parser.add_argument("--buildings_unet", type=str, required=True)'''
+=======
+<<<<<<< HEAD
     parser.add_argument("--patch_size", type=int, default=256)
 =======
 <<<<<<< HEAD
@@ -163,12 +242,39 @@ if __name__ =='__main__':
     parser.add_argument("--patch_size", type=int, default=128)
 >>>>>>> 07140eaaa10e283042a6faa4b7862e3d6610012f
 >>>>>>> 42951068e7560a02fbd4c24434948ed3b02e4130
+>>>>>>> ac22ace2c0cd8ad797744c28f0b435856fba5fbe
 
     args = parser.parse_args()
     
     IMAGEPATH = args.image_path
     OUTPUTDIR = args.output_dir
     PATCHSIZE = args.patch_size
+<<<<<<< HEAD
+    VEGETATEDUNET= args.vegetated_unet
+    NONVEGETATEDUNET= args.non_vegetated_unet
+    ROADSUNET= args.vegetated_unet
+    TILLAGEUNET= args.non_vegetated_unet
+    CROPSUNET= args.crops_unet   
+    
+    try:
+        img = Image.open(IMAGEPATH).convert('RGB')
+        img = np.array(img)
+        img = img.transpose((2, 0, 1))
+
+        #img = tiff.imread(IMAGEPATH) # reading the image as it is going to be used by all threads
+        #img = img[:,:,:3]
+    except:
+        print(f'Error in image: {IMAGEPATH}')
+
+
+# Vegetated
+outfile_dir = os.path.join(OUTPUTDIR, 'vegetated.jpg')
+generate_prediction(img, PATCHSIZE, img.shape, VEGETATEDUNET, outfile_dir)
+
+# Non-vegetated
+#outfile_dir = os.path.join(OUTPUTDIR, 'non-vegetated.jpg')
+#generate_prediction(img, PATCHSIZE, img.shape, NONVEGETATEDUNET, outfile_dir)    
+=======
 <<<<<<< HEAD
     VEGETATEDUNET= "./results/results-exp-000/vegetated_512x512/exp_CGIAR_vegetated/exp_CGIAR_vegetated_test_00_cv_00_patchSize_512.pt"
     NONVEGETATEDUNET="./results/results-exp-000/non_vegetated_512x512/exp_CGIAR_non_vegetated/exp_CGIAR_non_vegetated_test_00_cv_01_patchSize_512.pt"
@@ -341,3 +447,4 @@ if __name__ =='__main__':
 
 
  
+>>>>>>> ac22ace2c0cd8ad797744c28f0b435856fba5fbe
