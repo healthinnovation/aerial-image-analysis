@@ -1,8 +1,0 @@
-Traceback (most recent call last):
-  File "src/main.py", line 55, in <module>
-    trainer = Trainer(model_opts=conf.model_opts, loaders=loaders)
-  File "/home/ubuntu/cgiar_repo/cgiar-malaria/src/trainer.py", line 13, in __init__
-    self.set_model(model_opts)
-  File "/home/ubuntu/cgiar_repo/cgiar-malaria/src/trainer.py", line 19, in set_model
-    self.model = model_def(**model_opts.args)
-TypeError: __init__() got an unexpected keyword argument 'dataset'

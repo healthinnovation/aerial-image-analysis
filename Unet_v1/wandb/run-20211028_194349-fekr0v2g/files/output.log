@@ -1,8 +1,0 @@
-Traceback (most recent call last):
-  File "src/main.py", line 55, in <module>
-    trainer = Trainer(model_opts=conf.model_opts, loaders=loaders)
-  File "/home/gabriel/Documents/[001]Projects/CGIAR-UPCH/repos/cgiar-malaria/src/trainer.py", line 13, in __init__
-    self.set_model(model_opts)
-  File "/home/gabriel/Documents/[001]Projects/CGIAR-UPCH/repos/cgiar-malaria/src/trainer.py", line 18, in set_model
-    model_def = globals()[model_opts.name]
-KeyError: 'U-Net'
