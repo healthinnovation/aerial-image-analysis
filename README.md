@@ -25,9 +25,8 @@ Estimate Funestus mosquito amount based on satellite and drone images
 
 ## Data sources
 
-- [Bukina Faso](https://drive.google.com/drive/folders/1HL_4wlyrbySpTjCI6ksgUgzgpUkb0fMZ?usp=sharing) 
-- [Code d'Yvoire](https://drive.google.com/drive/folders/13yo-UopYd4nMeV-ocss30sOlClwNPJrk?usp=sharing)
-- [Tanzania](https://drive.google.com/drive/folders/1e6Q3kyFCuMs5ZHoN7kZ862vsetv1kUo7?usp=sharing)
+- Bukina Faso
+- Code d'Yvoire
 
 ## Installation
 
