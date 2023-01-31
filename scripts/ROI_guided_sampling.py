@@ -153,7 +153,7 @@ def process_mask_thread(img, mask_path, PATCHSIZE, OVERLAP, THRESHOLD, OUTPUT_PA
     del gt, patches
     gc.collect()
 
-def extract_patches_parallel(drone_imgs, PATCHSIZE, OVERLAP, DATADIR, OUTPUTDIR):
+def extract_patches_parallel(drone_imgs, PATCHSIZE, OVERLAP, DATADIR, THRESHOLD, OUTPUTDIR):
     '''A thread will launch the process of patch generation using one of the masks files in the drone image folder'''
 
     # threads_list = []
@@ -194,7 +194,7 @@ def extract_patches_parallel(drone_imgs, PATCHSIZE, OVERLAP, DATADIR, OUTPUTDIR)
 # ------------ #
 # Main program #
 # ------------ #
-if __name__ =='__main__':
+def main():
 
     parser = argparse.ArgumentParser()
 
@@ -231,7 +231,7 @@ if __name__ =='__main__':
     for i in range(NUM_PROC):
         imgs_per_proc = math.ceil(len(drone_imgs)/NUM_PROC)
         logging.info(f'Processor {i}: Drone images {drone_imgs[i*imgs_per_proc:(i+1)*imgs_per_proc]}')
-        process = multiprocessing.Process(target=extract_patches_parallel, args=(drone_imgs[i*imgs_per_proc:(i+1)*imgs_per_proc], PATCHSIZE, OVERLAP, DATADIR, OUTPUTDIR))
+        process = multiprocessing.Process(target=extract_patches_parallel, args=(drone_imgs[i*imgs_per_proc:(i+1)*imgs_per_proc], PATCHSIZE, OVERLAP, DATADIR, THRESHOLD, OUTPUTDIR))
         jobs.append(process)
 
     for j in jobs:
@@ -239,3 +239,7 @@ if __name__ =='__main__':
 
     for j in jobs:
         j.join()
+
+
+if __name__ == '__main__':
+    main()
